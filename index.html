@@ -1,0 +1,1083 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STT | Festa a Fantasia</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --roxo: #6c2bd9;
+            --escuro: #170b32;
+            --rosa: #ff4fa3;
+            --amarelo: #ffd166;
+            --claro: #f7f3ff;
+            --texto: #24183e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--claro);
+            color: var(--texto);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 7%;
+            background: rgba(23, 11, 50, 0.97);
+            border-bottom: 1px solid #ffffff22;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: white;
+        }
+
+        .logo span,
+        footer span {
+            color: var(--amarelo);
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--amarelo);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 680px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            color: white;
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    #ff4fa355,
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #160b30,
+                    #42136e 60%,
+                    #781c78
+                );
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            z-index: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 10px 17px;
+            border: 1px solid #ffffff55;
+            border-radius: 30px;
+            color: var(--amarelo);
+            background: #ffffff12;
+            margin-bottom: 22px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(70px, 10vw, 130px);
+            line-height: 0.88;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: var(--amarelo);
+        }
+
+        .hero p {
+            max-width: 500px;
+            color: #e8dff9;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 24px;
+            border-radius: 30px;
+            background: var(--rosa);
+            color: white;
+            font-size: 12px;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            background: #ff76ba;
+        }
+
+        .btn.secondary {
+            margin-left: 8px;
+            background: transparent;
+            border: 1px solid #ffffff66;
+        }
+
+        .mask-area {
+            width: 360px;
+            height: 360px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(
+                circle,
+                #c55aff,
+                #6322b3 65%,
+                #2a1258
+            );
+            box-shadow: 0 0 70px #c55aff55;
+            animation: float 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        .mask {
+            font-size: 150px;
+            filter: drop-shadow(0 10px 15px #0004);
+        }
+
+        .star {
+            position: absolute;
+            color: var(--amarelo);
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+
+        .star.one {
+            top: 20px;
+            right: 25px;
+        }
+
+        .star.two {
+            bottom: 30px;
+            left: 15px;
+        }
+
+        /* SEÇÕES */
+
+        .section {
+            padding: 80px 7%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 42px;
+        }
+
+        .label {
+            color: var(--roxo);
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 6vw, 68px);
+            color: var(--escuro);
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #766889;
+        }
+
+        /* INFORMAÇÕES */
+
+        .event {
+            background: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 28px 15px;
+            border: 1px solid #eee5fa;
+            border-radius: 20px;
+            background: #fcfaff;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px #371a6e12;
+        }
+
+        .icon {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 11px;
+            color: #8d7ba9;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--escuro);
+        }
+
+        /* CONTADOR */
+
+        .countdown-section {
+            background: linear-gradient(135deg, #241046, #4d1a83);
+            text-align: center;
+            color: white;
+        }
+
+        .countdown-section h2 {
+            color: white;
+        }
+
+        .countdown-section .label {
+            color: var(--amarelo);
+        }
+
+        .countdown-section .section-header p {
+            color: #dcd0ef;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .time {
+            min-width: 105px;
+            padding: 20px 15px;
+            background: #ffffff12;
+            border: 1px solid #ffffff30;
+            border-radius: 16px;
+        }
+
+        .time span {
+            display: block;
+            color: var(--amarelo);
+            font-size: 38px;
+            font-weight: 800;
+        }
+
+        .time small {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #d7cbea;
+        }
+
+        #message {
+            font-size: 12px;
+            color: #d7cbea;
+        }
+
+        /* ATRAÇÕES */
+
+        .experiences {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .experience {
+            background: white;
+            border: 1px solid #ece5f8;
+            border-radius: 24px;
+            text-align: center;
+            padding: 35px 25px;
+            transition: 0.3s;
+        }
+
+        .experience:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px #32186412;
+        }
+
+        .experience .emoji {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .experience h3 {
+            font-size: 17px;
+            color: var(--escuro);
+            margin-bottom: 12px;
+        }
+
+        .experience p {
+            font-size: 13px;
+            line-height: 1.8;
+            color: #817592;
+        }
+
+        /* GALERIA */
+
+        .gallery {
+            background: white;
+        }
+
+        .gallery-box {
+            max-width: 1000px;
+            min-height: 290px;
+            margin: auto;
+            padding: 50px 20px;
+            border: 2px dashed #d6c3f3;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #fbf9ff, #f4ecff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .camera {
+            font-size: 65px;
+            margin-bottom: 20px;
+            animation: pulse 2.5s infinite;
+        }
+
+        .gallery-box h3 {
+            font-size: 23px;
+            color: var(--escuro);
+            margin-bottom: 12px;
+        }
+
+        .gallery-box p {
+            max-width: 450px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #817592;
+        }
+
+        .badge {
+            margin-top: 20px;
+            padding: 8px 17px;
+            border-radius: 20px;
+            background: #eadbff;
+            color: var(--roxo);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        /* RODAPÉ */
+
+        footer {
+            padding: 35px 7%;
+            background: var(--escuro);
+            text-align: center;
+            color: white;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        footer p {
+            font-size: 12px;
+            line-height: 1.8;
+            color: #b5a6ce;
+        }
+
+        .bottom {
+            margin-top: 22px;
+            padding-top: 20px;
+            border-top: 1px solid #ffffff1a;
+            color: #86769e;
+            font-size: 11px;
+        }
+
+        /* CONFETES */
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            width: 9px;
+            height: 15px;
+            z-index: 100;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-14px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* RESPONSIVIDADE */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .mask-area {
+                width: 280px;
+                height: 280px;
+            }
+
+            .mask {
+                font-size: 110px;
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .experiences {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 16px 5%;
+            }
+
+            .logo {
+                font-size: 23px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 10px;
+            }
+
+            .hero {
+                padding: 60px 5%;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .btn {
+                padding: 13px 18px;
+                font-size: 11px;
+            }
+
+            .mask-area {
+                width: 235px;
+                height: 235px;
+            }
+
+            .mask {
+                font-size: 90px;
+            }
+
+            .section {
+                padding: 60px 5%;
+            }
+
+            .info-grid {
+                gap: 12px;
+            }
+
+            .card {
+                padding: 25px 8px;
+            }
+
+            .card p {
+                font-size: 11px;
+            }
+
+            .time {
+                min-width: 70px;
+                padding: 15px 8px;
+            }
+
+            .time span {
+                font-size: 27px;
+            }
+
+            .time small {
+                font-size: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <a href="#" class="logo">
+            STT<span>✦</span>
+        </a>
+
+        <nav>
+            <a href="#evento">Evento</a>
+            <a href="#atracoes">Atrações</a>
+            <a href="#galeria">Fotos</a>
+        </nav>
+
+    </header>
+
+
+    <!-- DESTAQUE -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                ✦ SNACK TIME TOGETHER ✦
+            </div>
+
+            <h1>
+                FESTA<br>
+                A <span>FANTASIA</span>
+            </h1>
+
+            <p>
+                Prepare sua fantasia, solte a criatividade
+                e venha viver um momento especial com
+                a equipe STT!
+            </p>
+
+            <a class="btn" href="#evento">
+                🎭 Ver detalhes
+            </a>
+
+            <a class="btn secondary" href="#galeria">
+                📸 Galeria
+            </a>
+
+        </div>
+
+
+        <div class="mask-area">
+
+            <div class="mask">🎭</div>
+
+            <div class="star one">✦</div>
+            <div class="star two">✧</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMAÇÕES DO EVENTO -->
+
+    <section class="section event" id="evento">
+
+        <div class="section-header">
+
+            <div class="label">
+                Prepare-se para a diversão
+            </div>
+
+            <h2>Detalhes da festa</h2>
+
+            <p>
+                Confira as informações da Festa a Fantasia
+                do STT.
+            </p>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <div class="card">
+
+                <div class="icon">🎭</div>
+
+                <h3>Tema</h3>
+
+                <p>Festa a Fantasia</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📅</div>
+
+                <h3>Data</h3>
+
+                <p>09 de Outubro de 2026</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">📍</div>
+
+                <h3>Local</h3>
+
+                <p>Local a definir</p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="icon">⏰</div>
+
+                <h3>Horário</h3>
+
+                <p>19h — a confirmar</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTADOR -->
+
+    <section class="section countdown-section">
+
+        <div class="section-header">
+
+            <div class="label">
+                Contagem regressiva
+            </div>
+
+            <h2>Está chegando!</h2>
+
+            <p>
+                Prepare-se para a Festa a Fantasia do STT.
+            </p>
+
+        </div>
+
+
+        <div class="countdown">
+
+            <div class="time">
+                <span id="days">00</span>
+                <small>Dias</small>
+            </div>
+
+            <div class="time">
+                <span id="hours">00</span>
+                <small>Horas</small>
+            </div>
+
+            <div class="time">
+                <span id="minutes">00</span>
+                <small>Minutos</small>
+            </div>
+
+            <div class="time">
+                <span id="seconds">00</span>
+                <small>Segundos</small>
+            </div>
+
+        </div>
+
+
+        <p id="message">
+            ✨ Prepare-se! A festa está chegando!
+        </p>
+
+    </section>
+
+
+    <!-- ATRAÇÕES -->
+
+    <section class="section" id="atracoes">
+
+        <div class="section-header">
+
+            <div class="label">
+                O que esperar
+            </div>
+
+            <h2>Uma festa inesquecível</h2>
+
+            <p>
+                Um momento para celebrar, se divertir
+                e compartilhar experiências com a equipe STT.
+            </p>
+
+        </div>
+
+
+        <div class="experiences">
+
+            <div class="experience">
+
+                <div class="emoji">🧙‍♀️</div>
+
+                <h3>Fantasia e criatividade</h3>
+
+                <p>
+                    Solte a imaginação e prepare
+                    uma fantasia cheia de personalidade.
+                </p>
+
+            </div>
+
+
+            <div class="experience">
+
+                <div class="emoji">🎉</div>
+
+                <h3>Clima de festa</h3>
+
+                <p>
+                    Música, diversão e momentos
+                    especiais para compartilhar.
+                </p>
+
+            </div>
+
+
+            <div class="experience">
+
+                <div class="emoji">🤝</div>
+
+                <h3>Juntos no STT</h3>
+
+                <p>
+                    Uma oportunidade de fortalecer
+                    a união e criar boas lembranças.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- GALERIA -->
+
+    <section class="section gallery" id="galeria">
+
+        <div class="section-header">
+
+            <div class="label">
+                Memórias da festa
+            </div>
+
+            <h2>Galeria de fotos</h2>
+
+            <p>
+                Depois do evento, este espaço será
+                preenchido com os melhores momentos.
+            </p>
+
+        </div>
+
+
+        <div class="gallery-box">
+
+            <div class="camera">📸</div>
+
+            <h3>Em Breve!</h3>
+
+            <p>
+                As fotos da Festa a Fantasia do STT
+                serão adicionadas aqui após o evento.
+            </p>
+
+            <div class="badge">
+                Fotos em breve ✨
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <div class="footer-logo">
+            STT<span>✦</span>
+        </div>
+
+        <p>
+            Snack Time Together • Festa a Fantasia
+        </p>
+
+        <div class="bottom">
+            © 2026 STT. Todos os direitos reservados.
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // CONTADOR REGRESSIVO
+        // Data: 09 de outubro de 2026 às 19h
+        // Horário de Brasília
+
+        const eventDate = new Date(
+            "2026-10-09T19:00:00-03:00"
+        );
+
+
+        function updateCountdown() {
+
+            const distance =
+                eventDate.getTime() - Date.now();
+
+            const message =
+                document.getElementById("message");
+
+
+            if (distance <= 0) {
+
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+
+                message.textContent =
+                    "🎉 A festa chegou! Aproveite o evento!";
+
+                return;
+
+            }
+
+
+            const days = Math.floor(
+                distance / 86400000
+            );
+
+            const hours = Math.floor(
+                (distance / 3600000) % 24
+            );
+
+            const minutes = Math.floor(
+                (distance / 60000) % 60
+            );
+
+            const seconds = Math.floor(
+                (distance / 1000) % 60
+            );
+
+
+            document.getElementById("days").textContent =
+                String(days).padStart(2, "0");
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+
+        }
+
+
+        // CONFETES
+
+        const colors = [
+            "#ff4fa3",
+            "#ffd166",
+            "#6c2bd9",
+            "#ffffff",
+            "#55d6be"
+        ];
+
+
+        function createConfetti(amount = 80) {
+
+            for (let i = 0; i < amount; i++) {
+
+                const item =
+                    document.createElement("div");
+
+                item.className = "confetti";
+
+                item.style.left =
+                    Math.random() * 100 + "vw";
+
+                item.style.backgroundColor =
+                    colors[
+                        Math.floor(
+                            Math.random() * colors.length
+                        )
+                    ];
+
+                item.style.animationDuration =
+                    (Math.random() * 3 + 2) + "s";
+
+                item.style.animationDelay =
+                    (Math.random() * 1.5) + "s";
+
+                item.style.transform =
+                    `rotate(${Math.random() * 360}deg)`;
+
+                document.body.appendChild(item);
+
+
+                setTimeout(() => {
+
+                    item.remove();
+
+                }, 6500);
+
+            }
+
+        }
+
+
+        // Confetes ao clicar no título
+
+        document.querySelector(".hero h1")
+            .addEventListener("click", () => {
+
+                createConfetti();
+
+            });
+
+
+        // Confetes ao carregar o site
+
+        window.addEventListener("load", () => {
+
+            setTimeout(() => {
+
+                createConfetti(50);
+
+            }, 500);
+
+        });
+
+
+        // Atualiza o contador
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+    </script>
+
+</body>
+</html>
